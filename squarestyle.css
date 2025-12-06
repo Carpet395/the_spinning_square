@@ -1,0 +1,195 @@
+div {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto 0;
+    background-color: red;
+    transition: transform 1000s ease-out;
+    border: 1px double white;
+    position: relative;
+}
+
+#bold {
+    font-size: large;
+    font-weight: bold;
+}
+
+body {
+    text-align: center;
+}
+.secret {
+    background-image: url("sprites/secretjpeg");
+    background-size: 100% 100%; /* width 100% */
+}
+.pit {   
+    background-image: url("sprites/sad_pit.jpg");
+    background-size: 100% 100%; /* width 100% */
+}
+#hello {
+    animation-iteration-count: infinite; 
+    animation-name: monkeyy;
+    animation-duration: 8s;
+}
+@keyframes monkeyy {
+    10% {transform:rotate(10000000000000000000000000000000deg); background-color:red;}
+    25% {background-color:orange;}
+    40% {background-color:blue;}
+    55% {background-color:gold;}
+    70% {background-color:purple;}
+    85% {background-color:green;}
+    100% {background-color:red;}
+}
+@keyframes mnn {
+        10% {background-color:red;border:5px inset red;}
+    25% {background-color:orange;border:5px inset green;}
+    40% {background-color:blue;border:5px inset purple;}
+    55% {background-color:gold;border:5px inset gold;}
+    70% {background-color:purple;border:5px inset blue;}
+    85% {background-color:green;border:5px inset orange;}
+    100% {background-color:red;border:5px inset red;} 
+}
+@keyframes mnp {
+        10% {background-color:red;}
+    25% {background-color:orange;}
+    40% {background-color:blue;}
+    55% {background-color:gold;}
+    70% {background-color:purple;}
+    85% {background-color:green;}
+    100% {background-color:red;}
+}
+@keyframes mnk {
+        10% {color:red;}
+    25% {color:red;}
+    40% {color:red;}
+    55% {color:orange;}
+    70% {color:red;}
+    85% {color:red;}
+    100% {color:red;}
+}
+#pi {
+    background-image: ur('')
+}
+button {
+    animation-iteration-count: infinite; 
+    animation-name: mnn;
+    animation-duration: 4s;
+    background-color:red;
+    border:5px inset red;
+    border-radius:5px;
+}
+#b {
+    width:100%;
+    height:40px;
+    font-size:20px;
+}
+@keyframes end {
+    0% {background-color:red;transform:rotate(-720deg)}
+}
+#pi {
+   animation-iteration-count: 1; 
+    animation-name: end;
+    animation-duration: 1s; 
+}
+p, pre, details {
+    background-color:white;
+    color: red;
+    animation-iteration-count: infinite; 
+    animation-name: mnk;
+    animation-duration: 4s; 
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: large;
+}
+/* Adjust margin and padding for nested details elements */
+/* Reset margins and padding for details and summary elements */
+details {
+    margin: 0;
+    padding: 0;
+}
+
+summary {
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+    white-space: pre-line;
+    margin: 0;
+    padding: 0;
+}
+/* Adjust margin and padding for nested details elements */
+details details {
+    margin: 0;
+    padding: 0;
+}
+
+details summary {
+    margin: 0;
+    padding: 0;
+}
+
+.pf {
+    background-color:red;
+    animation-iteration-count: infinite; 
+    animation-name: mnp;
+    animation-duration: 5s; 
+}
+@keyframes mnj {
+    0% {border-radius:1px;}
+    100% {border-radius:101px;}
+}
+@keyframes jnm {
+    0% {border-radius:101px;}
+    100% {border-radius:1px;}
+}
+.ball {
+     border:1px double white;
+     border-radius:100px;
+    background-color:red;
+    animation-iteration-count: 1;
+    animation-name: mnj;
+    animation-duration: 1s;
+}
+.square {
+     border:1px double white;
+     border-radius:1px;
+    background-color:red;
+    animation-iteration-count: 1;
+    animation-name: jnm;
+    animation-duration: 1s;
+}
+footer {
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: fixed;
+  top: 650;
+  left: 0;
+  width: 100%;
+} 
+h5 {
+    font-weight:bold;
+    text-decoration: underline;
+}
+img {
+    width:100%
+}
+.rotem {
+   background-image: url("sprites/mode_idea_giver.jpg");
+background-size: 100% 100%; 
+}
+.pig {
+background-image: url("sprites/creator_spider_ham.png");
+background-size: 100% 100%;
+}
+.mario {
+ background-image:   url("sprites/mario_mode.png");
+background-size: 100% 100%;
+}
+.ender {
+ background-image:   url("sprites/ender_mode.png");
+background-size: 100% 100%;
+}
+.creep {
+    background-image:   url("sprites/creeper_mode.png");
+    background-size: 100% 100%;
+}

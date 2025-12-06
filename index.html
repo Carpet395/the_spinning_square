@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="sprites/square_icon.jpeg" type="image/png">
+        <title>the spinning square</title>
+        <link rel="stylesheet" type="text/css" href="squarestyle.css">
+    </head>
+    <body id="pitxx" class="p">
+        <p id="pa"></p>
+        <div id="pov" onclick="change()"></div>
+        <audio id="pit" loop hidden src="music/Otherside.mp3" type="audio/mpeg">
+        </audio>
+        <br></br>
+        <br></br>
+    <!--<button onclick="bo()" id="b">stop</button>-->
+    <p>----------------------<br /><a id="pods"></a><button onclick="pie()">restart timer</button>
+    <br />
+    <details id="control_panel_0">
+    <summary>control panel:</summary>
+    <pre>
+        <details id="control_panel_1">
+            <summary>background changes:</summary>
+            <pre>
+                color of the background: <input type="color" id="pity" value="white"></input><br />
+                rainbow background: <input type="checkbox" id="pd"></input><br />
+                rainbow animation-duration: <input type="range" id="rang"></input><a id="px"></a><button onclick="rran()" id="fovbkxmgf">reset</button><br />
+                (the lower the faster)
+            </pre>
+        </details>
+        <details id="control_panel_1">
+            <summary>square changes:</summary>
+            <pre>
+                <details id="control_panel_2">
+                    <summary>general:</summary>
+                    <pre>
+                        circle:<input type="checkbox" id="pid"></input>
+                        note: the square to circle animation works only if <br /> the square is not rotating.
+                        color changing animation duration:<input type="range" id="veger"></input>
+                        <a id="low"> </a>
+                        <button id="gksgiso" onclick="ran()">reset</button>
+                        (the lower the faster)
+                    </pre>
+                </details>
+                <details id="control_panel_2">
+                    <summary>modes:</summary>
+                    <pre>
+                        pit(dog)-mode:<input type="checkbox" id="gh"></input>
+                        spider-pig-mode:<input type="checkbox" id="hg">
+                        mario-mode:<input type="checkbox" id="m"></input>
+                        rotem-mode:<input type="checkbox" id="r"></input>
+                        ender-mode:<input type="checkbox" id="e"></input>
+                        creep-mode:<input type="checkbox" id="c"></input>
+                        own-mode:<input type="checkbox" id="own"></input><input type="file" accept="image/*" id="imageInput">
+                    </pre>
+                </details>
+            </pre>
+        </details>
+        <details id="control_panel_1">
+            <summary>other:</summary>
+            <pre>
+                <details id="control_panel_2">
+                <summary>music:</summary>
+                    <pre>
+                        among us:<br /><audio controls loop><source src="music/among_us.mp3" type="audio/mpeg"></source></audio><br />
+                        otherside:<br /><audio id="pit" loop controls><source  src="music/Otherside.mp3" type="audio/mpeg"></source></audio><br />
+                        super-mario:<br /><audio id="pit" loop controls><source  src="music/mario.mp3" type="audio/mpeg"></source></audio><br />
+                        your music:<input type="file" accept="audio/*" id="au"></input><br /><audio controls id="pos"></audio><br />
+                    </pre>
+                </details>
+                <details id="control_panel_2">
+                    <summary>other:</summary>
+                    <pre>
+                        here's my dog:<br /><img src="sprites/sad_pit_full.jpg" alt="IMG-20230313-201209">
+                        <br />for more photoes:<br />
+                        <a href="https://sites.google.com/view/pits-photoes/%D7%91%D7%99%D7%AA">pit's page</a><br />
+                        <br />
+                        <p>do you think you can find the secret?</p>
+                        <button type="button" onclick="init()">Start</button>
+                        <p id="label-container"></p>
+                        <!--<details id="other websites">
+                            <summary>other</summary>
+                            <pre class="chapters">
+                                <a href="#chapter-1">Chapter 1</a>
+                                <a href="#chapter-2">Chapter 2</a>
+                                <a href="#chapter-3">Chapter 3</a>
+                                <a href="#chapter-4">Chapter 4</a>
+                                <a href="#chapter-5">Chapter 5</a>
+                            </pre>
+                        </details>-->
+                        </pre>
+                        </details>
+                    </pre>
+                </details>
+            </pre>
+        </details>
+                        <br /><a id="bold">spinning square app:</a><br /><a id="bold" href="https://play.google.com/store/apps/details?id=com.ilayzoneinc.thespinningsquare1&pcampaignid=web_share">the spinning square app</a><br /><a id="bold">hope you enjoyed!</a><br />-----------------------------</p>
+                        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script>
+                        
+                        <script type="text/javascript">
+                            // more documentation available at
+                            // https://github.com/tensorflow/tfjs-models/tree/master/speech-commands
+                        
+                            // the link to your model provided by Teachable Machine export panel
+                            const URL = "./my_model/";
+                        
+                            async function createModel() {
+                                const checkpointURL = URL + "model.json"; // model topology
+                                const metadataURL = URL + "metadata.json"; // model metadata
+                        
+                                const recognizer = speechCommands.create(
+                                    "BROWSER_FFT", // fourier transform type, not useful to change
+                                    undefined, // speech commands vocabulary feature, not useful for your models
+                                    checkpointURL,
+                                    metadataURL);
+                        
+                                // check that model and metadata are loaded via HTTPS requests.
+                                await recognizer.ensureModelLoaded();
+                        
+                                return recognizer;
+                            }
+                        
+                            async function init() {
+                                const recognizer = await createModel();
+                                const classLabels = recognizer.wordLabels(); // get class labels
+                                const labelContainer = document.getElementById("label-container");
+                                for (let i = 0; i < classLabels.length; i++) {
+                                    labelContainer.appendChild(document.createElement("div"));
+                                }
+                        
+                                // listen() takes two arguments:
+                                // 1. A callback function that is invoked anytime a word is recognized.
+                                // 2. A configuration object with adjustable fields
+                                recognizer.listen(result => {
+                                    const scores = result.scores; // probability of prediction for each class
+                                    // render the probability scores per class
+                                    for (let i = 0; i < classLabels.length; i++) {
+                                        const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+                                        labelContainer.childNodes[i].innerHTML = classPrediction;
+                                    }
+                                }, {
+                                    includeSpectrogram: true, // in case listen should return result.spectrogram
+                                    probabilityThreshold: 0.75,
+                                    invokeCallbackOnNoiseAndUnknown: true,
+                                    overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
+                                });
+                        
+                                // Stop the recognition in 5 seconds.
+                                // setTimeout(() => recognizer.stopListening(), 5000);
+                            }
+                        </script>
+    <script src="thesquarescript.js"></script>
+    <!--<footer>
+    <h5 style="border:1px solid white; background-color:white;">created by: ilay™, all copyrights goes to: ilay©</p>
+    </footer>-->
+    </body>
+    </html>
