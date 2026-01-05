@@ -6,6 +6,7 @@ div {
     transition: transform 1000s ease-out;
     border: 1px double white;
     position: relative;
+    background-size: 100% 100%;
 }
 
 #bold {
