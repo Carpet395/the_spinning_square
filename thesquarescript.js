@@ -216,9 +216,9 @@ function time() {
     }
     if (Math.floor(secs)!==0) {
     if (Math.floor(secs)%60==0) {
-        window.navigator.vibrate(500);
+        //window.navigator.vibrate(500);
         if (t==0) {
-        alert("you passed the: " + Math.floor(secs)/60 + " minutes mark")
+        //alert("you passed the: " + Math.floor(secs)/60 + " minutes mark")
         t = 1
     }
     }
