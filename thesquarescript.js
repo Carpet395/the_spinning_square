@@ -32,6 +32,20 @@ var god = document.querySelector('#hello');
 var audurl = ""
 var au = document.getElementById('au');
 var pies = document.getElementById('pos');
+
+const queryString = window.location.search;
+
+const urlParams = new URLSearchParams(queryString);
+
+const FromApp = urlParams.get('FromApp');
+
+if (urlParams.has('FromApp')) {
+    const FromApp = urlParams.get('FromApp');
+    if (FromApp) {
+        document.getElementById('appDownlaod').remove();
+    }
+}
+
 au.addEventListener('change', auy); 
 function auy(event) {
 var aag = event.target.files[0];
