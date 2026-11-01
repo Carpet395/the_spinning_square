@@ -110,6 +110,19 @@ p, pre, details {
     font-weight: bold;
     font-size: large;
 }
+@media (prefers-color-scheme: dark) {
+    p, pre, details {
+        background-color: #121212;
+        color: red;
+        animation-iteration-count: infinite; 
+        animation-name: mnk;
+        animation-duration: 4s; 
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+        font-size: large;
+    }
+}
+
 /* Adjust margin and padding for nested details elements */
 /* Reset margins and padding for details and summary elements */
 details {
