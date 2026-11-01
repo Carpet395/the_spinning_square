@@ -3,31 +3,26 @@ var pxcc = 0
 var pressed = false;
 var imageInput = document.getElementById('imageInput');
 var rotem = document.getElementById("r")
-var own = document.getElementById("own")
-var creep = document.getElementById("c")
-var ender = document.getElementById("e")
-var mario = document.getElementById("m")
-var pit = document.getElementById("gh")
-var pig = document.getElementById("hg")
-var rangerr = document.getElementById("rang")
+
+var own = document.getElementById("OwnSkin")
+var DogSkin = document.getElementById("DogSkin")
+var DogAltSkin = document.getElementById("DogAltSkin")
+var D5Skin = document.getElementById("DiceSkin")
+
 var timespent = document.getElementById("pods")
 var px = document.getElementById("px")
-var present = document.getElementById("low")
 var left = 2.95 - timer
 left = -10
-var ranger = document.getElementById("veger")
 var timerr = 0
-var p = document.getElementById("pa")
+var clickTheSquareText = document.getElementById("clickText")
 var musicc = document.getElementById("pit")
 var divv = document.getElementById("pov")
 //var div = document.getElementsByTagName("div")
 //div.style.left = screen.width / 2
 var timer = 0
-var pitx = document.getElementById("pity")
 var body = document.getElementById("pitxx")
 var pd = 0
-var checs = document.getElementById("pd")
-var nochecs = document.getElementById("pid")
+var UseCircle = document.getElementById("UseCircle")
 var god = document.querySelector('#hello');
 var audurl = ""
 var au = document.getElementById('au');
@@ -46,7 +41,7 @@ if (urlParams.has('FromApp')) {
     }
 }
 
-au.addEventListener('change', auy); 
+//au.addEventListener('change', auy); 
 function auy(event) {
 var aag = event.target.files[0];
 
@@ -58,7 +53,6 @@ reader.onload = function(event) {
 reader.readAsDataURL(aag);
 }
 
-divv.src = "https://www.dropbox.com/s/nvcslw815ge97um/Screenshot_2023-02-06-11-03-54-240_no.mobitroll.kahoot.android-edit.jpg?dl=0"
 var secs = 0
 var ter = 0
 var imageDataUrl = ""
@@ -76,36 +70,13 @@ reader.onload = function(event) {
     divv.style.backgroundImage = `url(${imageDataUrl})`;
     }
 }
-reader.readAsDataURL(selectedImageFile);
+    reader.readAsDataURL(selectedImageFile);
 }
-p.innerHTML =  "click the square!"
+clickTheSquareText.innerHTML =  "click the square!"
 console.log("variable's loaded")
 setInterval(time, 10)
 function time() {
-    if (pd!==1) {
-    if (pd==0) {
-    pitx.setAttribute("value", "#fefeff");
-    ranger.setAttribute("value", "50")  
-    rangerr.setAttribute("value", "50");
-    console.log("input's value loaded")
-    }
-    if (pd==2) {
-        ranger.setAttribute("value", "50");
-    }
-    if (pd==3) {
-        rangerr.setAttribute("value", "50");
-    }
-    pd = 1
-    }
-    if (checs.checked==true) {
-        body.classList.add("pf");
-    var np = rangerr.value * 10 / 100
-    body.style.animationDuration = np + "s"
-    }
-    else {
-    body.classList.remove("pf");
-    }
-    if (nochecs.checked==true) {
+    if (UseCircle.checked==true) {
         divv.classList.add("ball");
         divv.classList.remove("square");
     }
@@ -113,97 +84,21 @@ function time() {
     divv.classList.remove("ball");
     divv.classList.add("square");
     }
-    if (divv.id=="hello") {
-    var element = document.querySelector('.spin'); 
-    var n = ranger.value * 16 / 100
-    element.style.animationDuration = n + "s"
+    if (DogSkin.checked) {
+        divv.style.setProperty("--background-image", `url(sprites/sad_pit.jpg)`);
+        divv.style.backgroundImage = ""
+    }
+    else if (DogAltSkin.checked) {
+        divv.style.setProperty("--background-image", `url(sprites/Skin_DogAlt.png)`);
+    }
+    else if (D5Skin.checked) {
+        divv.style.setProperty("--background-image", `url(sprites/Skin_D5.png)`);
+    }
+    else if (own.checked) {
+        divv.style.setProperty("--background-image", `url(${imageDataUrl})`);
     }
     else {
-        divv.style.animationDuration = "1s"
-    }
-    present.innerHTML = ranger.value * 2 + "%  ";
-    px.innerHTML = rangerr.value * 2 + "%  ";
-    if (divv.classList.contains("secret")) {
-        divv.classList.remove("pit");
-        divv.classList.remove("pig");
-        divv.classList.remove("rotem");
-        divv.classList.remove("mario");
-        divv.classList.remove("ender");
-        divv.classList.remove("creep")
-        divv.style.backgroundImage = ""
-    }
-    else if (pit.checked==true) {
-        divv.classList.add("pit");
-        divv.classList.remove("pig");
-        divv.classList.remove("rotem");
-        divv.classList.remove("mario");
-        divv.classList.remove("ender");
-        divv.classList.remove("creep")
-        divv.style.backgroundImage = ""
-    }
-    else if (pig.checked==true) {
-        divv.classList.add("pig");
-        divv.classList.remove("rotem");
-        divv.classList.remove("mario");
-        divv.classList.remove("pit");
-        divv.classList.remove("ender");
-        divv.classList.remove("creep")
-        divv.style.backgroundImage = ""
-    }
-    else if (mario.checked==true) {
-        divv.classList.add("mario");
-        divv.classList.remove("rotem");
-        divv.classList.remove("pig");
-        divv.classList.remove("pit");
-        divv.classList.remove("ender");
-        divv.classList.remove("creep")
-        divv.style.backgroundImage = ""
-    }
-    else if (rotem.checked==true) {
-        divv.classList.add("rotem");
-        divv.classList.remove("pig");
-        divv.classList.remove("pit");
-        divv.classList.remove("mario");
-        divv.classList.remove("ender");
-        divv.style.backgroundImage = ""
-        divv.classList.remove("creep")
-    }
-    else if (ender.checked==true) {
-        divv.classList.add("ender")
-        divv.classList.remove("rotem");
-        divv.classList.remove("pig");
-        divv.classList.remove("pit");
-        divv.classList.remove("mario");
-        divv.classList.remove("creep")
-    divv.style.backgroundImage = "" 
-    }
-    else if (creep.checked==true) {
-        divv.classList.add("creep")
-        divv.classList.remove("ender")
-        divv.classList.remove("rotem");
-        divv.classList.remove("pig");
-        divv.classList.remove("pit");
-        divv.classList.remove("mario");
-        divv.style.backgroundImage = ""
-    }
-    else if (own.checked==true) {
-    divv.style.backgroundImage = `url(${imageDataUrl})`;
-    divv.classList.remove("pig");
-    divv.classList.remove("pit");
-    divv.classList.remove("mario"); 
-    divv.classList.remove("rotem");   
-    divv.classList.remove("ender");
-    divv.classList.remove("creep");
-    }
-    else {
-    divv.style.backgroundImage = ""
-    divv.classList.remove("pig");
-    divv.classList.remove("pit");
-    divv.classList.remove("mario"); 
-    divv.classList.remove("rotem");   
-    divv.classList.remove("ender");
-    divv.classList.remove("creep");
-    divv.style.backgroundImage = "";
+        divv.style.setProperty("--background-image", ``);
     }
     
     if (divv.id=="hello") {
@@ -230,17 +125,17 @@ function time() {
     left = -10
     if (left<=0&&divv.id=="pov") {
         if (divv.classList.contains("square")==true) {
-            pa.innerHTML = "click the square!"
+            clickTheSquareText.innerHTML = "click the square!"
         }
         else {
-            pa.innerHTML = "click the circle!"
+            clickTheSquareText.innerHTML = "click the circle!"
         }
     }
-    else if (divv.id=="pov") {
-        p.innerHTML = "click the square!"
+    else if (divv.id =="pov") {
+        clickTheSquareText.innerHTML = "click the square!"
     }
     else {
-        p.innerHTML = ""
+        clickTheSquareText.innerHTML = "\n"
     }
 }
 function bo() {
@@ -259,20 +154,15 @@ function ss() {
 }
 function change() {
 pressed = !pressed
-if (divv.id=="pov") {  
-    if (mario.checked==true) {
-        pxcc = 1
-        musicc.src = "music/mario.mp3"
-        musicc.type = "audio/mpeg"
-    }
-    else if (pxcc==1){
+if (divv.id=="pov") {
+    //if (pxcc==1){
         musicc.src = "music/Otherside.mp3"
         musicc.type = "audio/mpeg"
-        pxcc = 0
-    }
+        //pxcc = 0
+    //}
 }
 if (pressed) {
-    p.innerHTML = ""
+    clickTheSquareText.innerHTML = "\n"
     divv.id = "hello"
     divv.classList.add("spin");
     console.log("square is spining")
@@ -280,7 +170,7 @@ if (pressed) {
     console.log("music starting")
 }
 else {
-    p.innerHTML = "click the square!"
+    clickTheSquareText.innerHTML = "click the square!"
     musicc.pause()
     musicc.currentTime = 0;
     ter =0
