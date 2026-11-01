@@ -104,7 +104,6 @@ function time() {
     }
     else {
     body.classList.remove("pf");
-    body.style.backgroundColor = pitx.value
     }
     if (nochecs.checked==true) {
         divv.classList.add("ball");
